@@ -1,0 +1,32 @@
+.listTitle {
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(153, 153, 153);
+    text-decoration: underline;
+}
+
+td {
+    /* color: #A6D539; */
+    font-style: underline;
+    font-size: 15px;
+}
+
+fieldset {
+    border: none;
+}
+
+table {
+    border: 0.9px solid rgb(216, 216, 216) !important;
+    width: 1000px;
+}
+
+thead {
+    border-bottom: 1px solid rgb(216, 216, 216) !important;
+}
+
+.productIdText,
+#sales-container {
+    position: relative;
+    top: 20px;
+    font-size: 18px;
+}

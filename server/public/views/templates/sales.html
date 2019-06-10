@@ -1,0 +1,44 @@
+<div ng-include="'views/partials/header.html'"></div>
+<div class="sales-container">
+    <md-content layout-gt-sm="row" layout-padding layout-align="center center" id="sales-container">
+        <form>
+            <md-input-container>
+                <label>Sale ID:</label>
+                <input type="number" class="saleId" ng-model="vm.sales.saleId" />
+            </md-input-container>
+            <md-input-container>
+                <label>Product name:</label>
+                <input type="name" class="productName" ng-model="vm.sales.productName" />
+            </md-input-container>
+            <md-input-container>
+                <label>Sale name:</label>
+                <input type="name" class="saleName" ng-model="vm.sales.saleName" />
+            </md-input-container>
+            <md-input-container>
+                <label>Sale start date:</label>
+                <input type="date" class="productSaleStartDate" ng-model="vm.sales.productSaleStartDate" />
+            </md-input-container>
+            <md-input-container>
+                <label>Sale end date:</label>
+                <input type="date" class="productSaleEndDate" ng-model="vm.sales.productSaleEndDate" />
+            </md-input-container>
+            <md-input-container>
+                <label>Sale price:</label>
+                <input type="number" class="productSalePrice" ng-model="vm.sales.productSalePrice" />
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="vm.submitSalesData(vm.sales)">
+                Submit
+            </md-button>
+        </form>
+    </md-content>
+    <md-content layout-gt-sm="row" layout-padding layout-align="start start">
+        <md-checkbox ng-model="self.sale.weekend.isChecked" ng-disabled="self.sale.midweek.isChecked">
+            Weekend Sale
+        </md-checkbox>
+    </md-content>
+    <md-content layout-gt-sm="row" layout-padding layout-align="start start">
+        <md-checkbox ng-model="self.sale.midweek.isChecked" ng-disabled="self.sale.weekend.isChecked">
+            Midweek Sale
+        </md-checkbox>
+    </md-content>
+</div>

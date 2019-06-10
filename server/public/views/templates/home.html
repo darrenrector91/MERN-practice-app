@@ -1,0 +1,51 @@
+<div ng-include="'views/partials/header.html'"></div>
+<div class="container">
+    <md-content layout-gt-sm="row" layout-padding layout-align="center center">
+        <form name="inputForm">
+            <div>
+                <md-input-container style="height: 100%">
+                    <label>Search by Product ID</label>
+                    <input type="number" class="productIdText" ng-model="vm.productID">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-click="vm.getMovies(vm.productID)">
+                    Submit</md-button>
+            </div>
+        </form>
+    </md-content>
+    <md-content>
+        <div class="table table-hover" layout="horizontal" layout-align="center center" ng-cloak class="md-inline-form"
+            layout-wrap>
+            <table id="productTable">
+                <thead>
+                    <tr id="tableHeadRow">
+                        <th>Product ID</th>
+                        <th>Product title</th>
+                        <th>Currency code</th>
+                        <th>Current price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tableData" align="center">
+                        <td>{{vm.apiData.tcin}}</td>
+                        <td>{{vm.apiData.product_description.title}}</td>
+                        <td>{{vm.productData.current_price.currency_code}}</td>
+                        <td>
+                            <div ng-show="vm.editData">{{vm.productData.current_price.value | number : 2 }}</div>
+                            <div ng-hide="vm.editData"><input type="text"
+                                    ng-model="vm.productData.current_price.value" />
+                            </div>
+                        </td>
+                        <td ng-hide="vm.isBusy">
+                            <md-button ng-show="vm.editData" class="md-raised md-primary" ng-click="vm.editData()">
+                                Edit
+                            </md-button>
+                            <md-button ng-hide="vm.editData" class="md-raised md-primary"
+                                ng-click="vm.updatePrice(vm.apiData.tcin, vm.productData)">Update</md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-content>
+</div>
